@@ -24,10 +24,8 @@ A tile based pattern generation algorithm.
 ## Installation & Usage
 
 ```bash
-# Clone and install
-git clone https://github.com/GeEom/greedytile
-cd greedytile
-cargo install --path .
+# Install
+cargo install greedytile
 
 # Generate pattern from source image
 greedytile input.png
