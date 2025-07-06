@@ -7,7 +7,7 @@
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 [![codecov](https://codecov.io/gh/GeEom/greedytile/branch/master/graph/badge.svg)](https://codecov.io/gh/GeEom/greedytile)
 
-A tile based pattern generation algorithm.
+Fast pattern synthesis algorithm preserving local tile constraints. Safe Rust implementation with CLI and library interfaces.
 
 ## Examples
 
