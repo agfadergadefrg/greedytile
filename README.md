@@ -3,6 +3,7 @@
 [![CI](https://github.com/GeEom/greedytile/actions/workflows/ci.yml/badge.svg)](https://github.com/GeEom/greedytile/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/GeEom/greedytile/branch/main/graph/badge.svg)](https://codecov.io/gh/GeEom/greedytile)
 [![Rust](https://github.com/GeEom/greedytile/actions/workflows/rust.yml/badge.svg)](https://github.com/GeEom/greedytile/actions/workflows/rust.yml)
+[![Crates.io](https://img.shields.io/crates/v/greedytile.svg)](https://crates.io/crates/greedytile)
 [![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
 [![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
