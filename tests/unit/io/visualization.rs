@@ -53,7 +53,8 @@ mod tests {
 
         assert_eq!(viz.placement_count(), 4);
 
-        let result = viz.export_gif("/dev/null/test.gif", 50);
+        // Use an invalid path that works cross-platform
+        let result = viz.export_gif("\0invalid\0path.gif", 50);
         assert!(result.is_err());
     }
 
@@ -73,7 +74,8 @@ mod tests {
 
         assert_eq!(viz.placement_count(), 6);
 
-        let result = viz.export_gif("/dev/null/test.gif", 5);
+        // Use an invalid path that works cross-platform
+        let result = viz.export_gif("\0invalid\0path.gif", 5);
         assert!(result.is_err());
     }
 
