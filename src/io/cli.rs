@@ -19,7 +19,7 @@ use std::time::Instant;
 #[command(
     author,
     version,
-    about = "Generate tile patterns using information-greedy algorithm"
+    about = "Generate tile patterns using random greedy algorithm"
 )]
 /// Command-line arguments for the pattern generation tool
 // CLI tools commonly need multiple boolean flags for various features and user preferences

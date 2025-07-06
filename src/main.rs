@@ -1,4 +1,4 @@
-//! CLI entry point for the information-greedy tile generation algorithm
+//! CLI entry point for the greedy tile generation algorithm
 
 use clap::Parser;
 use greedytile::io::cli::{Cli, FileProcessor};

@@ -1,6 +1,10 @@
 # GreedyTile
 
+[![CI](https://github.com/GeEom/greedytile/actions/workflows/ci.yml/badge.svg)](https://github.com/GeEom/greedytile/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/GeEom/greedytile/branch/main/graph/badge.svg)](https://codecov.io/gh/GeEom/greedytile)
+[![Rust](https://github.com/GeEom/greedytile/actions/workflows/rust.yml/badge.svg)](https://github.com/GeEom/greedytile/actions/workflows/rust.yml)
 [![unsafe forbidden](https://img.shields.io/badge/unsafe-forbidden-success.svg)](https://github.com/rust-secure-code/safety-dance/)
+[![MIT licensed](https://img.shields.io/badge/license-MIT-blue.svg)](./LICENSE.txt)
 
 A tile based pattern generation algorithm.
 
@@ -38,7 +42,7 @@ greedytile ./patterns/
 | `--seed` | Seed reproducible generation | 42 | ![Default Seed](data/examples/seed_default_4x.png) | ![Custom Seed](data/examples/seed_custom_4x.png) |
 | `--iterations` | Maximum iterations| 1000 | ![Default Iterations](data/examples/iterations_default_4x.png) | ![More Iterations](data/examples/iterations_custom_4x.png) |
 | `--prefill` | Use content of `<input>_pre.png` | disabled | ![No Prefill](data/examples/prefill_off_4x.png) | ![Prefill Enabled](data/examples/prefill_on_4x.png) |
-| `--visualize`  | Generate placement animation | disabled | | ![Tile Placement Animation](data/examples/visualization_4x.gif) |
+| `--visualize`  | Generate placement animation | disabled | | ![Tile Placement Animation](data/examples/d_visualization_4x.gif) |
 | `--width` | Maximum pixel width | unbounded | ![Unbounded](data/examples/size_unbounded_4x.png) | ![Bounded](data/examples/size_32x32_4x.png) |
 | `--height` | Maximum pixel height | unbounded | | |
 | `--rotate` | Enable 90°/180°/270° tile rotations | disabled | ![No Rotation](data/examples/rotate_off_4x.png) | ![Rotation Enabled](data/examples/rotate_on_4x.png) |

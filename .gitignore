@@ -1,1 +1,29 @@
+# Rust
 /target
+Cargo.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+*.profraw
+*.profdata
+
+# Temporary files
+*.tmp
+*.bak
+*.log
+
+# Python (for scripts)
+__pycache__/
+*.py[cod]
+*$py.class

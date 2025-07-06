@@ -1,6 +1,6 @@
 [package]
 name = "greedytile"
-version = "1.0.0"
+version = "0.1.0"
 edition = "2024"
 authors = ["David Gathercole"]
 description = "Random greedy pixel pattern generation algorithm"
