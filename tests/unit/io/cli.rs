@@ -217,4 +217,55 @@ mod tests {
         let args = vec!["program", target];
         Cli::parse_from(args)
     }
+
+    // Tests width/height CLI arguments create proper bounds configuration
+    // Verified by changing short flag from 'w' to 'x'
+    #[test]
+    fn test_cli_dimension_arguments() {
+        let args_width = vec!["program", "test.png", "-w", "512"];
+        let cli_width = Cli::parse_from(args_width);
+        assert_eq!(cli_width.width, Some(512));
+        assert_eq!(cli_width.height, None);
+
+        let args_height = vec!["program", "test.png", "-H", "256"];
+        let cli_height = Cli::parse_from(args_height);
+        assert_eq!(cli_height.width, None);
+        assert_eq!(cli_height.height, Some(256));
+
+        let args_both = vec!["program", "test.png", "-w", "512", "-H", "256"];
+        let cli_both = Cli::parse_from(args_both);
+        assert_eq!(cli_both.width, Some(512));
+        assert_eq!(cli_both.height, Some(256));
+    }
+
+    // Tests multiple feature flags can be combined correctly
+    // Verified by removing short flag from visualize option
+    #[test]
+    fn test_cli_feature_flag_combinations() {
+        let args = vec![
+            "program",
+            "test.png",
+            "--visualize",
+            "--analysis",
+            "--prefill",
+            "--rotate",
+            "--mirror",
+        ];
+        let cli = Cli::parse_from(args);
+
+        assert!(cli.visualize);
+        assert!(cli.analysis);
+        assert!(cli.prefill);
+        assert!(cli.rotate);
+        assert!(cli.mirror);
+
+        let args_short = vec!["program", "test.png", "-v", "-a", "-p", "-r", "-m"];
+        let cli_short = Cli::parse_from(args_short);
+
+        assert!(cli_short.visualize);
+        assert!(cli_short.analysis);
+        assert!(cli_short.prefill);
+        assert!(cli_short.rotate);
+        assert!(cli_short.mirror);
+    }
 }

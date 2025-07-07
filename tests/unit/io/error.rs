@@ -91,4 +91,62 @@ mod tests {
         assert!(message.contains("matrix multiplication"));
         assert!(message.contains("dimensions mismatch"));
     }
+
+    // Tests that error context properly enriches errors with position information
+    // Verified by removing position context application in with_context
+    #[test]
+    fn test_error_context_with_position() {
+        use greedytile::io::error::{ErrorContext, WithContext};
+
+        let error = AlgorithmError::NoValidPositions {
+            iteration: 10,
+            grid_dimensions: (50, 50),
+        };
+
+        let context = ErrorContext {
+            iteration: Some(42),
+            position: Some([100, 200]),
+            grid_position: Some([10, 20]),
+            operation: Some("pattern matching"),
+        };
+
+        let enriched = std::result::Result::<(), AlgorithmError>::Err(error).with_context(context);
+
+        match enriched.unwrap_err() {
+            AlgorithmError::NoValidPositions { iteration, .. } => {
+                assert_eq!(iteration, 42);
+            }
+            _ => unreachable!("Expected NoValidPositions error"),
+        }
+    }
+
+    // Tests helper functions create properly formatted errors
+    // Verified by changing helper function implementations
+    #[test]
+    fn test_error_helper_functions() {
+        use greedytile::io::error::{computation_error, invalid_parameter};
+
+        let param_err = invalid_parameter("width", &-5, &"must be positive");
+        match param_err {
+            AlgorithmError::InvalidParameter {
+                parameter,
+                value,
+                reason,
+            } => {
+                assert_eq!(parameter, "width");
+                assert_eq!(value, "-5");
+                assert_eq!(reason, "must be positive");
+            }
+            _ => unreachable!("Expected InvalidParameter error"),
+        }
+
+        let comp_err = computation_error("entropy calculation", &"division by zero");
+        match comp_err {
+            AlgorithmError::Computation { operation, reason } => {
+                assert_eq!(operation, "entropy calculation");
+                assert_eq!(reason, "division by zero");
+            }
+            _ => unreachable!("Expected Computation error"),
+        }
+    }
 }

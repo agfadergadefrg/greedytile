@@ -5,6 +5,8 @@ use greedytile::algorithm::{
     cache::{PatternKey, ViableTilesCache},
 };
 
+// Tests intersection operation on two bitsets returns only common elements
+// Verified by changing intersection to union operation
 #[test]
 fn test_bitset_operations() {
     let mut set1 = TileBitset::new(10);
@@ -23,6 +25,8 @@ fn test_bitset_operations() {
     assert_eq!(intersection.count(), 2);
 }
 
+// Tests intersection of disjoint bitsets returns empty set
+// Verified by adding common element to both sets
 #[test]
 fn test_bitset_empty_intersection() {
     let mut set1 = TileBitset::new(10);
@@ -39,11 +43,12 @@ fn test_bitset_empty_intersection() {
     assert_eq!(intersection.to_vec(), vec![]);
 }
 
+// Tests cache returns consistent results and tracks hit/miss statistics
+// Verified by preventing cache from storing computed results
 #[test]
 fn test_cache_behavior() {
     let mut cache = ViableTilesCache::new();
 
-    // Verify cache returns consistent results and tracks hit/miss statistics correctly
     let key = PatternKey::new(&[[1, 2, 3], [4, 5, 6], [7, 8, 9]], 1, 1);
 
     let result1_vec = {
@@ -69,6 +74,8 @@ fn test_cache_behavior() {
     assert_eq!(result1_vec, result2_vec);
 }
 
+// Tests pattern keys are equal for identical patterns and different for different patterns
+// Verified by making PatternKey equality ignore pattern content
 #[test]
 fn test_pattern_key_equality() {
     let pattern1 = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
