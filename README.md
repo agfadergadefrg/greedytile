@@ -30,8 +30,8 @@ cargo install greedytile
 # Generate pattern from source image
 greedytile input.png
 
-# Process directory of images
-greedytile ./patterns/
+# Process directory of images including rotation, mirroring, and animation
+greedytile ./patterns/ -r -m -v
 ```
 ## Options
 
